@@ -10,4 +10,6 @@ Then, it is important to run the programs one by one in order:
 1. Run backbone `./backbone`  
 2. Run interlayer `./interlayer`  
 3. Run cipher `./cipher`  
-4. Run input `./input`
+4. Run input `./input`  
+  
+Backbone and interlayer are able to run in background, input and cipher are used as User Interface.
