@@ -6,3 +6,6 @@ The project contains 3 phases:
 1. Research analysis of received data
 2. Preprocessing of data
 3. Design of optimal classification algorithm (decision tree) to predict protein level based on input values
+
+Authors  
+- Adam Klementis, Pavel Sadlon
