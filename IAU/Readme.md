@@ -1,4 +1,4 @@
-Semestral project for subject Inteligent Data Analysis on [FIIT STU](https://www.fiit.stuba.sk/en.html?page_id=749)
+#### Semestral project for subject Inteligent Data Analysis on [FIIT STU](https://www.fiit.stuba.sk/en.html?page_id=749)
 
 We received training datasets of patients with thyroid disease and based on the values in tables, we had to do a prediction of protein levels on testing datasets. 
 
