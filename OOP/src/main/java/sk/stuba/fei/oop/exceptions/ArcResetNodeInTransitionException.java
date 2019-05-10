@@ -1,12 +1,10 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
-
 package sk.stuba.fei.oop.exceptions;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public class ArcResetNodeInTransitionException extends Exception {
 
     public ArcResetNodeInTransitionException() { super(); }

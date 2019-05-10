@@ -1,15 +1,13 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
-
 package sk.stuba.fei.oop.petrinet;
 
 import sk.stuba.fei.oop.exceptions.TransitionNotExecutableException;
 import java.util.ArrayList;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public class Transition extends Node {
 
     private ArrayList<Arc> arcs = new ArrayList<>();

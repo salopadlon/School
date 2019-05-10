@@ -1,27 +1,25 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
-
 package sk.stuba.fei.oop.transformers;
 
 import sk.stuba.fei.oop.generated.Document;
 import sk.stuba.fei.oop.gui.Drawable;
 import sk.stuba.fei.oop.petrinet.PetriNet;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.awt.*;
 import java.io.File;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public class FileHandler {
 
     private List<Drawable> drawables = new LinkedList<>();

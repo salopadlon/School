@@ -1,10 +1,3 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
-
 package sk.stuba.fei.oop.gui;
 
 import sk.stuba.fei.oop.exceptions.ArcWeightLowerThanOneException;
@@ -17,6 +10,11 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public class Arc2D extends Line2D.Float implements Drawable<Arc> {
 
     private static final int WIDTH = 10;

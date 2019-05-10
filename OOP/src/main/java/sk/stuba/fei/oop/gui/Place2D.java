@@ -1,10 +1,3 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
-
 package sk.stuba.fei.oop.gui;
 
 import sk.stuba.fei.oop.petrinet.Place;
@@ -13,6 +6,11 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public class Place2D extends Ellipse2D.Float implements Drawable<Place> {
 
     private Place place;

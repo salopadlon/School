@@ -1,13 +1,12 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
 package sk.stuba.fei.oop.petrinet;
 
 import sk.stuba.fei.oop.exceptions.*;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public abstract class Arc {
 
     private Node source, destination;

@@ -1,10 +1,3 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
-
 package sk.stuba.fei.oop.transformers;
 
 import sk.stuba.fei.oop.generated.Arc;
@@ -17,6 +10,11 @@ import sk.stuba.fei.oop.petrinet.ArcTaking;
 import sk.stuba.fei.oop.petrinet.PetriNet;
 import java.util.ArrayList;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public class PetriNetTransformer extends Transformer<PetriNet> {
 
     @Override

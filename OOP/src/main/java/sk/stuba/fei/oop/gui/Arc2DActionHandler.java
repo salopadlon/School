@@ -2,6 +2,7 @@ package sk.stuba.fei.oop.gui;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
 /**
@@ -29,10 +30,13 @@ public class Arc2DActionHandler extends Rectangle2D.Double implements Drawable<A
         double hypotenuse = Math.sqrt(Math.pow(xDiff,2) + Math.pow(yDiff,2));
         double angle = Math.toDegrees(Math.asin(Math.sin(yDiff/hypotenuse)));
 
+        AffineTransform at = new AffineTransform();
+        at.rotate(Math.toRadians(angle), x, y);
+        Shape rotated = at.createTransformedShape(this);
+
         g.setColor(Color.BLUE);
-        g.rotate(Math.toRadians(angle), x, y);
-        g.fill(this);
-        g.draw(this);
+        g.fill(rotated);
+        g.draw(rotated);
     }
 
     @Override

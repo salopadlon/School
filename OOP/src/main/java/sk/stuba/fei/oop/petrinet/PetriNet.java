@@ -1,10 +1,3 @@
-/**
- *
- * @project: FEI OOP PetriNet Editor
- * @author: Pavel Sadlon
- *
- */
-
 package sk.stuba.fei.oop.petrinet;
 
 import sk.stuba.fei.oop.exceptions.ArcWeightLowerThanOneException;
@@ -13,6 +6,11 @@ import sk.stuba.fei.oop.exceptions.TransitionNotExecutableException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @projct: netModeller
+ * @author: Pavel Sadlon
+ * @date: 2019
+ */
 public class PetriNet {
 
     private HashMap<Long, Transition> transitionHashMap = new HashMap<>();
