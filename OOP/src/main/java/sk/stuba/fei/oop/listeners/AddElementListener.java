@@ -9,18 +9,17 @@ import sk.stuba.fei.oop.gui.NetFrame;
  */
 abstract class AddElementListener extends ButtonListener {
 
+    private static long id;
+
     AddElementListener(NetFrame netFrame) {
         super(netFrame);
     }
 
-    long generateId() {
-        long id = getNetFrame().getNetCanvas().getDrawableList().size()+1;
+    long getId() {
         return id;
+    }
 
-//        setId(getId()+1);
-//        return getId();
-//        long leftLimit = 1L;
-//        long rightLimit = 100L;
-//        return leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+    public void setId(long id) {
+        AddElementListener.id = id;
     }
 }

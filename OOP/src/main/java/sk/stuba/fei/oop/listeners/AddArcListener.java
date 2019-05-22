@@ -6,6 +6,7 @@ import sk.stuba.fei.oop.petrinet.*;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ConcurrentModificationException;
 
 /**
  * @projct: netModeller
@@ -37,6 +38,7 @@ public class AddArcListener extends AddElementListener implements MouseListener 
     private void createArc(Drawable drawable) {
         Node arcDestination = (Node) drawable.getElement();
         testNodesType(arcSource, arcDestination);
+        this.setId(getId()+1);
         if (arcSource.getClass().equals(Place.class)) {
             createArcTaking(getNetFrame().getNetCanvas(), getNetFrame().getNetCanvas().getPetriNet(), arcSource, arcDestination);
         } else {
@@ -44,22 +46,22 @@ public class AddArcListener extends AddElementListener implements MouseListener 
         }
     }
 
-    private void createArcAdding(NetCanvas canvas, PetriNet petriNet, Node arcSource, Node arcDestination) {
+    private void createArcAdding(NetCanvas netCanvas, PetriNet petriNet, Node arcSource, Node arcDestination) {
         ArcAdding aa = new ArcAdding((Transition) arcSource, (Place) arcDestination, 1);
-        aa.setId(generateId());
+        aa.setId(getId());
         petriNet.addArc(aa.getId(), aa);
         Arc2D arc2D = new Arc2D(arcSource.getX(), arcSource.getY(), arcDestination.getX(), arcDestination.getY(), aa);
-        canvas.addDrawable(arc2D);
-        canvas.addDrawable(new Arc2DActionHandler(arc2D));
+        netCanvas.addDrawable(arc2D);
+        netCanvas.addDrawable(new Arc2DActionHandler(arc2D));
     }
 
-    private void createArcTaking(NetCanvas canvas, PetriNet petriNet, Node arcSource, Node arcDestination) {
+    private void createArcTaking(NetCanvas netCanvas, PetriNet petriNet, Node arcSource, Node arcDestination) {
         ArcTaking at = new ArcTaking((Place) arcSource, (Transition) arcDestination, 1);
-        at.setId(generateId());
+        at.setId(getId());
         petriNet.addArc(at.getId(), at);
         Arc2D arc2D = new Arc2D(arcSource.getX(), arcSource.getY(), arcDestination.getX(), arcDestination.getY(), at);
-        canvas.addDrawable(arc2D);
-        canvas.addDrawable(new Arc2DActionHandler(arc2D));
+        netCanvas.addDrawable(arc2D);
+        netCanvas.addDrawable(new Arc2DActionHandler(arc2D));
     }
 
     private void testNodesType(Node first, Node second) {
@@ -79,7 +81,9 @@ public class AddArcListener extends AddElementListener implements MouseListener 
 
     @Override
     public void mousePressed(MouseEvent e) {
-        addArc(e);
+        try {
+            addArc(e);
+        } catch (ConcurrentModificationException | ClassCastException e1) {}
     }
 
     @Override

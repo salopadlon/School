@@ -10,6 +10,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import java.awt.*;
 import java.io.File;
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -55,19 +56,15 @@ public class FileHandler {
 
     public void saveFile(Document document) {
 
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("XML files", "xml");
+        FileDialog fileDialog = new FileDialog(new Frame(), "Save Petri net", FileDialog.SAVE);
+        fileDialog.setVisible(true);
 
-        chooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
-        chooser.setDialogTitle("Save Petri net");
-        chooser.setAcceptAllFileFilterUsed(false);
-        chooser.addChoosableFileFilter(filter);
-        chooser.showSaveDialog(null);
+        String fileName = fileDialog.getFile();
 
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Document.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.marshal(document, new File("output.xml"));
+            marshaller.marshal(document, new File(fileName + ".xml"));
         } catch (JAXBException e) {
             System.out.println(e);
         }

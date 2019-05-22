@@ -1,11 +1,10 @@
 package sk.stuba.fei.oop.listeners;
 
-import sk.stuba.fei.oop.gui.Drawable;
-import sk.stuba.fei.oop.gui.NetFrame;
+import sk.stuba.fei.oop.gui.*;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Iterator;
+import java.util.ConcurrentModificationException;
 
 /**
  * @projct: netModeller
@@ -19,13 +18,23 @@ public class RemoveListener extends ButtonListener implements MouseListener {
     }
 
     private void remove(MouseEvent e) {
-        for (Iterator<Drawable> iterator = getNetFrame().getNetCanvas().getDrawableList().iterator(); iterator.hasNext();) {
-            Drawable drawable = iterator.next();
-            if (drawable.contains(e.getX(), e.getY())) {
-                    iterator.remove();
-                    getNetFrame().getNetCanvas().repaint();
+        try {
+            for (Drawable drawable : getNetFrame().getNetCanvas().getDrawableList()) {
+                if (drawable.contains(e.getX(), e.getY())) {
+                    if (drawable.getClass().equals(Arc2DActionHandler.class)) {
+                        getNetFrame().getNetCanvas().getDrawableList().remove(drawable.getElement());
+                        removeDrawable(drawable);
+                    } else {
+                        removeDrawable(drawable);
+                    }
+                }
             }
-        }
+        } catch (ConcurrentModificationException e1) {}
+    }
+
+    private void removeDrawable(Drawable drawable) {
+            getNetFrame().getNetCanvas().getDrawableList().remove(drawable);
+            getNetFrame().getNetCanvas().repaint();
     }
 
     @Override

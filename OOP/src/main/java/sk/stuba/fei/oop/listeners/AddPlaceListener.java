@@ -20,7 +20,8 @@ public class AddPlaceListener extends AddElementListener implements MouseListene
     }
 
     private void addPlace(MouseEvent e) {
-        Place place = new Place(generateId(),"p",0,e.getX(),e.getY());
+        setId(getId()+1);
+        Place place = new Place(getId(),"p"+getId(),0,e.getX(),e.getY());
         getNetFrame().getNetCanvas().getPetriNet().addPlace(place.getId(), place);
         getNetFrame().getNetCanvas().addDrawable(new Place2D(e.getX(),e.getY(),place));
         getNetFrame().getNetCanvas().repaint();

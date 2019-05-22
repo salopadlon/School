@@ -4,7 +4,6 @@ import sk.stuba.fei.oop.petrinet.PetriNet;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 import java.util.List;
 
 /**
@@ -28,7 +27,7 @@ public class NetCanvas extends Canvas {
             for (Drawable drawable : drawableList) {
                 drawable.draw((Graphics2D) g);
             }
-        } catch (NullPointerException | ConcurrentModificationException e) {
+        } catch (NullPointerException e) {
             System.out.println(e);
         }
     }

@@ -103,8 +103,4 @@ public class PetriNet {
 
         return null;
     }
-
-    public HashMap<Long, Arc> getArcHashMap() {
-        return arcHashMap;
-    }
 }

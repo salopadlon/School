@@ -20,7 +20,8 @@ public class AddTransitionListener extends AddElementListener implements MouseLi
     }
 
     private void addTransition(MouseEvent e) {
-        Transition transition = new Transition(generateId(),"t",e.getX(),e.getY());
+        setId(getId()+1);
+        Transition transition = new Transition(getId(),"t"+getId(),e.getX(),e.getY());
         getNetFrame().getNetCanvas().getPetriNet().addTransition(transition.getId(),transition);
         getNetFrame().getNetCanvas().addDrawable(new Transition2D(e.getX(),e.getY(), transition, getNetFrame().getNetCanvas().getPetriNet()));
         getNetFrame().getNetCanvas().repaint();

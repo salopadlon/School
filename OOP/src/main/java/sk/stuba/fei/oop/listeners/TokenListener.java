@@ -1,8 +1,9 @@
 package sk.stuba.fei.oop.listeners;
 
+import sk.stuba.fei.oop.gui.Arc2DActionHandler;
 import sk.stuba.fei.oop.gui.Drawable;
 import sk.stuba.fei.oop.gui.NetFrame;
-import sk.stuba.fei.oop.gui.Transition2D;
+import sk.stuba.fei.oop.gui.Place2D;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,19 +13,27 @@ import java.awt.event.MouseListener;
  * @author: Pavel Sadlon
  * @date: 2019
  */
-public class FireListener extends ButtonListener implements MouseListener {
+public class TokenListener extends ButtonListener implements MouseListener {
 
-    public FireListener(NetFrame netFrame) {
+
+    public TokenListener(NetFrame netFrame) {
         super(netFrame);
     }
 
-    private void fire(MouseEvent e) {
+    private void edit(MouseEvent e) {
         for (Drawable drawable : getNetFrame().getNetCanvas().getDrawableList()) {
-            if (drawable.getClass().equals(Transition2D.class) && drawable.contains(e.getX(), e.getY())) {
-                drawable.onClick(e);
-                getNetFrame().getNetCanvas().repaint();
+            if (drawable.getClass().equals(Place2D.class) && drawable.contains(e.getX(), e.getY())) {
+                action(e, drawable);
+            }
+            if (drawable.getClass().equals(Arc2DActionHandler.class) && drawable.contains(e.getX(), e.getY())) {
+                action(e, drawable);
             }
         }
+    }
+
+    private void action(MouseEvent e, Drawable drawable) {
+        drawable.onClick(e);
+        getNetFrame().getNetCanvas().repaint();
     }
 
     @Override
@@ -34,7 +43,7 @@ public class FireListener extends ButtonListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        fire(e);
+        edit(e);
     }
 
     @Override

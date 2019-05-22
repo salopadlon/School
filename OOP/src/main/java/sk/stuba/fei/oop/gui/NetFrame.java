@@ -28,6 +28,7 @@ public class NetFrame extends Frame {
         AddTransitionButton bTransition = new AddTransitionButton("Add transition", this);
         AddArcButton bArc = new AddArcButton("Add arc", this);
         FireButton bFire = new FireButton("Fire", this);
+        TokenButton bToken = new TokenButton("Edit tokens/weight", this);
 
         setSize(1200,600);
         setLayout(new BorderLayout());
@@ -38,9 +39,6 @@ public class NetFrame extends Frame {
         panel.add(bSave);
         bSave.addActionListener(bSave);
 
-        panel.add(bRemove);
-        bRemove.addActionListener(bRemove);
-
         panel.add(bPlace);
         bPlace.addActionListener(bPlace);
 
@@ -49,6 +47,12 @@ public class NetFrame extends Frame {
 
         panel.add(bArc);
         bArc.addActionListener(bArc);
+
+        panel.add(bToken);
+        bToken.addActionListener(bToken);
+
+        panel.add(bRemove);
+        bRemove.addActionListener(bRemove);
 
         panel.add(bFire);
         bFire.addActionListener(bFire);
