@@ -2,7 +2,7 @@
 * Semestral project for subject OSRT - Operating systems of real time  
   
 Cypherpunk 1337 is a cryptographic tool, using combination of transposition and substitution (Caesar) ciphre.  
-The program consists of 4 sub-programs that are communincating through various types of IPC. Programs are compiled using makefile command:  
+The program consists of 4 processes that are communincating through various types of IPC. Programs are compiled using makefile command:  
 ```
 make all
 ```
